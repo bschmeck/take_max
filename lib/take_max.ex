@@ -1,0 +1,2 @@
+defmodule TakeMax do
+end
