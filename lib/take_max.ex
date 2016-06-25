@@ -10,4 +10,12 @@ defmodule TakeMax do
   defp take_max([head | tail], remaining, keepers, func) do
     take_max(tail, remaining - 1, [head | keepers], func)
   end
+
+  defp take_max([head | tail], 0, keepers, func) do
+    [min_keeper | rest_keepers] = Enum.sort_by(keepers, func)
+    if func.(head) > func.(min_keeper) do
+      keepers = [head | rest_keepers]
+    end
+    take_max(tail, 0, keepers, func)
+  end
 end

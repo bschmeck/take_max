@@ -15,4 +15,11 @@ defmodule TakeMaxTest do
     taken = TakeMax.take_max(source, 20, &(&1))
     assert Enum.sort(source) == Enum.sort(taken)
   end
+
+  test "it returns the N largest elements in the list" do
+    # Use large numbers so that Elixir doesn't think it's a list of characters
+    source = [500, 700, 800, 100, 400, 900]
+    taken = TakeMax.take_max(source, 3, &(&1))
+    assert Enum.sort(taken) == [700, 800, 900]
+  end
 end
