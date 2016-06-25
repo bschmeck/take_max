@@ -7,7 +7,7 @@ defmodule TakeMax do
   end
 
   defp take_max([], _remaining, keepers, _func), do: keepers
-  defp take_max([head | tail], remaining, keepers, func) do
+  defp take_max([head | tail], remaining, keepers, func) when remaining > 0 do
     take_max(tail, remaining - 1, [head | keepers], func)
   end
 
